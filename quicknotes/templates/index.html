@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}QuickNotes doofle - Home{% endblock %}
+
+{% block content %}
+<div class="row">
+  <!-- Form Column -->
+  <div class="col-md-4">
+    <div class="card doodle-card mb-3">
+      <div class="card-body">
+        <h5 class="card-title">New Note</h5>
+        <form method="POST">
+          {% csrf_token %}
+          <div class="mb-3">
+            {{ form.title }}
+          </div>
+          <div class="mb-3">
+            {{ form.content }}
+          </div>
+          <button type="submit" class="btn btn-primary w-100">Add Note</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <!-- Notes List Column -->
+  <div class="col-md-8">
+    {% for note in notes %}
+    <div class="card doodle-card mb-3">
+      <div class="card-body">
+        <h5 class="card-title">{{ note.title }}</h5>
+        <p class="card-text">{{ note.content }}</p>
+        <p class="card-text">
+          <small class="text-muted">{{ note.created_at|date:"M d, Y H:i" }}</small>
+        </p>
+        <a href="{% url 'edit_note' note.pk %}" class="btn btn-warning me-2">Edit</a>
+        <a href="{% url 'delete_note' note.pk %}" class="btn btn-danger">Delete</a>
+      </div>
+    </div>
+    {% empty %}
+    <p>No notes available. Add your first note!</p>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

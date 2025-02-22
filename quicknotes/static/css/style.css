@@ -1,0 +1,29 @@
+/* Global doodle background and typography */
+body {
+    background: #f7f3e9 url('https://www.transparenttextures.com/patterns/asfalt-light.png') repeat;
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Header styling with doodle border */
+  .doodle-header {
+    background-color: #fff8ec;
+    border-bottom: 3px dashed #c49b63;
+    padding: 20px;
+  }
+  
+  /* Brand styling for "doofle" */
+  .brand {
+    font-style: italic;
+    color: #c49b63;
+  }
+  
+  /* Footer styling */
+  .doodle-footer {
+    background-color: #fff8ec;
+    border-top: 3px dashed #c49b63;
+    padding: 10px;
+    font-size: 0.9rem;
+  }
+  
